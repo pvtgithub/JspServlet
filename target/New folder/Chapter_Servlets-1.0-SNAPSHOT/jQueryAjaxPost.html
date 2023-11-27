@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function (e) {
+                $("#btn").click(function () {
+                    var name = document.getElementById('name').value
+                    var age = document.getElementById('age').value
+                    var salary = document.getElementById('salary').value
+
+                    $.post("/Chapter2_Servlets/postTest",
+                            {
+                                name: name,
+                                age: age,            
+                                salary: salary
+                            },
+                            function (data, status) {
+                                alert("Data: " + data + "\nStatus: " + status);
+                            });
+                });
+            });
+        </script>
+        <style>
+            div {
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <input type="text" , id="name" placeholder="Name" /></br>
+        <input type="text" , id="age" placeholder="Age" /></br>
+        <input type="text" , id="salary" placeholder="Salary" /></br>
+        <button id="btn">Click Here</button>
+
+        <div id="div1"><h2>jQuery Ajax</h2></div>
+
+    </body>
+</html>
